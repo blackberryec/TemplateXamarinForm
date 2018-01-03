@@ -1,22 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Threading.Tasks;
+using TemplateXamarinForm.Services;
+using TemplateXamarinForm.ViewModels.Base;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TemplateXamarinForm
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
 		public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new TemplateXamarinForm.MainPage();
-		}
+		    InitApp();
 
-		protected override void OnStart ()
+		    if (Device.RuntimePlatform == Device.UWP)
+		    {
+		        InitNavigation();
+		    }
+        }
+
+	    private void InitApp()
+	    {
+	        ViewModelLocator.RegisterDependencies();
+	    }
+
+	    private Task InitNavigation()
+	    {
+	        var navigationService = ViewModelLocator.Resolve<INavigationService>();
+	        return navigationService.InitializeAsync();
+	    }
+
+
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
