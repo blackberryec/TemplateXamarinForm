@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using Autofac;
 using TemplateXamarinForm.Services;
+using TemplateXamarinForm.Services.RequestProvider;
 using Xamarin.Forms;
 
 namespace TemplateXamarinForm.ViewModels.Base
@@ -36,6 +37,7 @@ namespace TemplateXamarinForm.ViewModels.Base
 
             // Services
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
+		    builder.RegisterType<RequestProvider>().As<IRequestProvider>();
 
 
 			if (_container != null)
