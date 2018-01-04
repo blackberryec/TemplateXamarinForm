@@ -34,12 +34,18 @@ namespace TemplateXamarinForm
 
 
 
-        protected override void OnStart ()
+        protected override async void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            base.OnStart();
+            // Handle when your app starts
+		    if (Device.RuntimePlatform != Device.UWP)
+		    {
+		        await InitNavigation();
+		    }
+		    base.OnResume();
+        }
 
-		protected override void OnSleep ()
+        protected override void OnSleep ()
 		{
 			// Handle when your app sleeps
 		}

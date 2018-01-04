@@ -31,6 +31,7 @@ namespace TemplateXamarinForm.ViewModels.Base
             // View models
             builder.RegisterType<MainViewModel>();
 		    builder.RegisterType<CatalogViewModel>();
+		    builder.RegisterType<BasketViewModel>();
 
 
             // Services

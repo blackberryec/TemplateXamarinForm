@@ -7,16 +7,21 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="True">
     <TabbedPage.Title>
         <OnPlatform x:TypeArguments="x:String">
-            <On Platform="iOS, UWP, WinRT, WinPhone" Value="eShop on Containers" />
+            <On Platform="iOS, UWP, WinRT, WinPhone" Value="Template Xamarin Form" />
         </OnPlatform>
     </TabbedPage.Title>
-    <ContentPage>
-        <Label Text="Welcome to Xamarin.Forms!" 
+    <ContentPage
+        x:Name="Page1"
+        Title="Page1">
+        <Label Text="Main Page!" 
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
     </ContentPage>
     <views:CatalogView  
         x:Name="HomeView">
     </views:CatalogView>
+    <views:BasketView
+        x:Name="BasketView">
+    </views:BasketView>
 </TabbedPage>
     
